@@ -8,6 +8,7 @@ draggables.forEach(draggable => {
 
 function dragStart(e) {
     e.dataTransfer.setData('text/plain', e.target.id);
+    e.target.classList.add('dragging');
 }
 
 function dragOver(e) {
@@ -21,9 +22,8 @@ function drop(e) {
     const targetElement = e.target;
 
     if (targetElement.classList.contains('draggable') && draggedElement !== targetElement) {
-        // Swap the images
-        const draggedImage = draggedElement.style.backgroundImage;
+        const tempBackground = draggedElement.style.backgroundImage;
         draggedElement.style.backgroundImage = targetElement.style.backgroundImage;
-        targetElement.style.backgroundImage = draggedImage;
+        targetElement.style.backgroundImage = tempBackground;
     }
 }

@@ -16,12 +16,12 @@ body {
     width: 150px;
     height: 150px;
     background-size: cover;
-    cursor: pointer;
+    cursor: grab;
 }
 
-#div1 { background-image: url('path/to/image1.jpg'); }
-#div2 { background-image: url('path/to/image2.jpg'); }
-#div3 { background-image: url('path/to/image3.jpg'); }
-#div4 { background-image: url('path/to/image4.jpg'); }
-#div5 { background-image: url('path/to/image5.jpg'); }
-#div6 { background-image: url('path/to/image6.jpg'); }
+#drag1 { background-image: url('path/to/image1.jpg'); }
+#drag2 { background-image: url('path/to/image2.jpg'); }
+#drag3 { background-image: url('path/to/image3.jpg'); }
+#drag4 { background-image: url('path/to/image4.jpg'); }
+#drag5 { background-image: url('path/to/image5.jpg'); }
+#drag6 { background-image: url('path/to/image6.jpg'); }
