@@ -6,21 +6,22 @@ body {
     background-color: #f0f0f0;
 }
 
-.container {
+.grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(3, 150px);
+    grid-gap: 10px;
 }
 
 .draggable {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     background-size: cover;
+    cursor: pointer;
 }
 
-#div1 { background-image: url('image1.jpg'); }
-#div2 { background-image: url('image2.jpg'); }
-#div3 { background-image: url('image3.jpg'); }
-#div4 { background-image: url('image4.jpg'); }
-#div5 { background-image: url('image5.jpg'); }
-#div6 { background-image: url('image6.jpg'); }
+#div1 { background-image: url('path/to/image1.jpg'); }
+#div2 { background-image: url('path/to/image2.jpg'); }
+#div3 { background-image: url('path/to/image3.jpg'); }
+#div4 { background-image: url('path/to/image4.jpg'); }
+#div5 { background-image: url('path/to/image5.jpg'); }
+#div6 { background-image: url('path/to/image6.jpg'); }
