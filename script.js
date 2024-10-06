@@ -1,29 +1,37 @@
-const draggables = document.querySelectorAll('.draggable');
+let draggedElement = null;
 
-draggables.forEach(draggable => {
-    draggable.addEventListener('dragstart', dragStart);
-    draggable.addEventListener('dragover', dragOver);
-    draggable.addEventListener('drop', drop);
+document.querySelectorAll('.draggable').forEach(item => {
+    item.addEventListener('dragstart', event => {
+        draggedElement = item;
+        event.dataTransfer.effectAllowed = 'move';
+        setTimeout(() => {
+            item.style.display = 'none'; // Hide the element while dragging
+        }, 0);
+    });
+
+    item.addEventListener('dragend', event => {
+        setTimeout(() => {
+            draggedElement.style.display = 'block'; // Show the element again
+            draggedElement = null; // Clear the reference to the dragged element
+        }, 0);
+    });
+
+    item.addEventListener('dragover', event => {
+        event.preventDefault(); // Prevent default to allow drop
+    });
+
+    item.addEventListener('drop', event => {
+        event.preventDefault();
+        if (draggedElement !== item) {
+            // Swap the content of the dragged element and the target element
+            const tempId = item.id; // Store the ID of the target element
+            item.id = draggedElement.id; // Set target's ID to dragged element's ID
+            draggedElement.id = tempId; // Set dragged element's ID to target's ID
+
+            // Swap backgrounds
+            const tempBackground = item.style.backgroundImage; 
+            item.style.backgroundImage = draggedElement.style.backgroundImage; 
+            draggedElement.style.backgroundImage = tempBackground; 
+        }
+    });
 });
-
-function dragStart(e) {
-    e.dataTransfer.setData('text/plain', e.target.id);
-    e.target.classList.add('dragging');
-}
-
-function dragOver(e) {
-    e.preventDefault();
-}
-
-function drop(e) {
-    e.preventDefault();
-    const draggedId = e.dataTransfer.getData('text/plain');
-    const draggedElement = document.getElementById(draggedId);
-    const targetElement = e.target;
-
-    if (targetElement.classList.contains('draggable') && draggedElement !== targetElement) {
-        const tempBackground = draggedElement.style.backgroundImage;
-        draggedElement.style.backgroundImage = targetElement.style.backgroundImage;
-        targetElement.style.backgroundImage = tempBackground;
-    }
-}

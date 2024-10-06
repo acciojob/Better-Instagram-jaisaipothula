@@ -6,22 +6,21 @@ body {
     background-color: #f0f0f0;
 }
 
-.grid {
+.container {
     display: grid;
-    grid-template-columns: repeat(3, 150px);
-    grid-gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
 }
 
 .draggable {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     background-size: cover;
-    cursor: grab;
 }
 
-#drag1 { background-image: url('path/to/image1.jpg'); }
-#drag2 { background-image: url('path/to/image2.jpg'); }
-#drag3 { background-image: url('path/to/image3.jpg'); }
-#drag4 { background-image: url('path/to/image4.jpg'); }
-#drag5 { background-image: url('path/to/image5.jpg'); }
-#drag6 { background-image: url('path/to/image6.jpg'); }
+#drag1 { background-image: url('image1.jpg'); }
+#drag2 { background-image: url('image2.jpg'); }
+#drag3 { background-image: url('image3.jpg'); }
+#drag4 { background-image: url('image4.jpg'); }
+#drag5 { background-image: url('image5.jpg'); }
+#drag6 { background-image: url('image6.jpg'); }
